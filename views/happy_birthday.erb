@@ -1,0 +1,49 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background: linear-gradient(177deg, rgba(108,191,242,1) 0%, rgba(29,240,253,1) 50%, rgba(69,252,198,1) 100%);
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: #fff;
+    font-size: 40px;
+  }
+
+  .div_style {
+    text-align: center;
+    margin: auto;
+    padding-top: 100px;
+  }
+
+  .button {
+    background-color: #1e97ea;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+  }
+
+</style>
+
+<% date = DateTime.now %>
+<% day = date.day %>
+<% month = date.month %>
+<% dob = Date.new(date.year, @month.to_i, @day.to_i) %>
+<% days_until_bday = (date - dob.to_date).to_i %>
+<div class="div_style">
+<% if @day.to_i == day.to_i && @month.to_i == month.to_i %>
+<h1>Happy Birthday <%= @name %>! <img src="https://images.emojiterra.com/google/android-10/512px/1f389.png" style="width:120px; height:120px"></h1>
+<img src="https://media1.giphy.com/media/3oFzmkR4L4pJiZfXtS/source.gif" style="padding-top:20px">
+<% else %>
+<h2>Your birthday will be in <%= days_until_bday %> days, <%= @name %> &#128515;</h2>
+<img src="https://media0.giphy.com/media/cUAaIMYgGAup0gsJuO/giphy.gif" style="padding-top:20px">
+<% end %>
+<br><br>
+<form action="/" method="get">
+<input type="submit" value="< Back" class="button">
+</form>
+</div>
