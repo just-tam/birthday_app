@@ -34,12 +34,19 @@
 <% month = date.month %>
 <% dob = Date.new(date.year, @month.to_i, @day.to_i) %>
 <% days_until_bday = (date - dob.to_date).to_i %>
+
+
+
 <div class="div_style">
 <% if @day.to_i == day.to_i && @month.to_i == month.to_i %>
 <h1>Happy Birthday <%= @name %>! <img src="https://images.emojiterra.com/google/android-10/512px/1f389.png" style="width:120px; height:120px"></h1>
 <img src="https://media1.giphy.com/media/3oFzmkR4L4pJiZfXtS/source.gif" style="padding-top:20px">
 <% else %>
-<h2>Your birthday will be in <%= days_until_bday %> days, <%= @name %> &#128515;</h2>
+<h2>Your birthday will be in <% if days_until_bday < 1 %>
+  <%= days_until_bday * -1 %>
+  <% else %>
+  <%= days_until_bday %>
+  <% end %> days, <%= @name %> &#128515;</h2>
 <img src="https://media0.giphy.com/media/cUAaIMYgGAup0gsJuO/giphy.gif" style="padding-top:20px">
 <% end %>
 <br><br>
